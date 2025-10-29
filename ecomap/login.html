@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Map - Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/mensagens.css">
+    <link rel="icon" href="img/logo_semfundo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/LOGOINDEX.png" alt="Logo Eco Map" class="logo-icon" />
+                <h1>Eco Map</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#inicio">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="cadastro.html" class="btn btn-outline">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="login-main">
+        <div class="container">
+            <div class="login-container">
+                <h1 class="login-title">Acesse sua Conta</h1>
+                <p class="login-subtitle">Selecione o tipo de login para continuar</p>
+                
+                <div class="login-tabs">
+                    <div class="login-tab active" data-tab="empresa">Login para Empresas</div>
+                    <div class="login-tab" data-tab="usuario">Login para Usuários</div>
+                </div>
+
+                <form id="form-empresa" class="login-form active" action="php/empresa_login.php" method="POST">
+                    <h2>Login Empresarial</h2>
+                    <div class="form-group">
+                        <label for="empresa-cnpj">CNPJ</label>
+                        <input type="text" id="empresa-cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa-email">E-mail</label>
+                        <input type="email" id="empresa-email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa-senha">Senha</label>
+                        <input type="password" id="empresa-senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-full">Entrar</button>
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </form>
+
+                <form id="form-usuario" class="login-form" action="php/usuario_login.php" method="POST">
+                    <h2>Login de Usuário</h2>
+                    <div class="form-group">
+                        <label for="usuario-nome">Nome</label>
+                        <input type="text" id="usuario-nome" name="nome" placeholder="Digite seu nome de usuário" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-email">E-mail</label>
+                        <input type="email" id="usuario-email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-senha">Senha</label>
+                        <input type="password" id="usuario-senha" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-full">Entrar</button>
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </form>
+
+                <div class="login-footer">
+                    <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Eco Map — Conectando sustentabilidade e tecnologia.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5531920077134?text=Olá%20Eco%20Map" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/mensagens.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.login-tab');
+            const forms = document.querySelectorAll('.login-form');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    forms.forEach(form => form.classList.remove('active'));
+                    document.getElementById(`form-${tabId}`).classList.add('active');
+                });
+            });
+
+            // Verificar parâmetros de URL para mostrar mensagens
+            const urlParams = new URLSearchParams(window.location.search);
+            const erro = urlParams.get('erro');
+            const sucesso = urlParams.get('sucesso');
+
+            if (erro) {
+                mensagemManager.erro(erro);
+            }
+
+            if (sucesso) {
+                mensagemManager.sucesso(sucesso);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Map - Cadastro</title>
+    <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/mensagens.css">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="img/logo.jpeg" alt="Logo Eco Map" class="logo-icon" />
+                <h1>Eco Map</h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html#inicio">Início</a></li>
+                    <li><a href="index.html#servicos">Serviços</a></li>
+                    <li><a href="index.html#sobre">Sobre</a></li>
+                    <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cadastro-main">
+        <div class="container">
+            <div class="cadastro-container">
+                <h1 class="cadastro-title">Crie sua Conta</h1>
+                <p class="cadastro-subtitle">Selecione o tipo de cadastro para continuar</p>
+                
+                <div class="cadastro-tabs">
+                    <div class="cadastro-tab active" data-tab="empresa">Para Empresas</div>
+                    <div class="cadastro-tab" data-tab="usuario">Para Usuários</div>
+                </div>
+
+                <form id="form-empresa" class="cadastro-form active" action="php/empresa.php" method="POST">
+                    <h2>Cadastro Empresarial</h2>
+                    <div class="form-group">
+                        <label for="empresa-cnpj">CNPJ</label>
+                        <input type="text" id="empresa-cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa-nome">Nome da Empresa</label>
+                        <input type="text" id="empresa-nome" name="nome" placeholder="Digite o nome da empresa" required>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="empresa-endereco">Endereço Completo</label>
+                        <input type="text" id="empresa-endereco" name="endereco" placeholder="Ex: Rua das Flores, 123 - Complemento" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa-bairro">Bairro</label>
+                        <select id="empresa-bairro" name="bairro" required>
+                            <option value="">Selecione seu bairro</option>
+                            <option value="inconfidentes">Inconfidentes</option>
+                            <option value="riacho das pedras">Riacho das Pedras</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="eldorado">Eldorado</option>
+                            <option value="centro de contagem">Centro de Contagem</option>
+                            <option value="jardim riacho">Jardim Riacho</option>
+                            <option value="petrolandia">Petrolândia</option>
+                            <option value="florestal">Florestal</option>
+                            <option value="ressaca">Ressaca</option>
+                            <option value="parque sao joao">Parque São João</option>
+                            <option value="jardim laguna">Jardim Laguna</option>
+                            <option value="agua branca">Água Branca</option>
+                            <option value="santa cruz">Santa Cruz</option>
+                            <option value="nova contagem">Nova Contagem</option>
+                            <option value="amazonas">Amazonas</option>
+                            <option value="bairro europa">Bairro Europa</option>
+                        </select>
+                    </div>
+
+                    <!-- Checkbox para tipos de resíduos SEM IMAGENS -->
+                    <div class="form-group">
+                        <label class="checkbox-label">Tipos de Resíduos que a Empresa Trata</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-eletronico" name="residuos[]" value="Lixo Eletrônico">
+                                <label for="residuo-eletronico" class="checkbox-custom">
+                                    <span class="checkbox-text">Lixo Eletrônico</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-oleo" name="residuos[]" value="Óleo">
+                                <label for="residuo-oleo" class="checkbox-custom">
+                                    <span class="checkbox-text">Óleo</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-tintas" name="residuos[]" value="Tintas">
+                                <label for="residuo-tintas" class="checkbox-custom">
+                                    <span class="checkbox-text">Tintas</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-pneus" name="residuos[]" value="Pneus">
+                                <label for="residuo-pneus" class="checkbox-custom">
+                                    <span class="checkbox-text">Pneus</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-lampadas" name="residuos[]" value="Lâmpadas Fluorescentes">
+                                <label for="residuo-lampadas" class="checkbox-custom">
+                                    <span class="checkbox-text">Lâmpadas Fluorescentes</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-construcao" name="residuos[]" value="Resíduos de Construção Civil">
+                                <label for="residuo-construcao" class="checkbox-custom">
+                                    <span class="checkbox-text">Resíduos de Construção Civil</span>
+                                </label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="residuo-hospitalar" name="residuos[]" value="Material Hospitalar">
+                                <label for="residuo-hospitalar" class="checkbox-custom">
+                                    <span class="checkbox-text">Material Hospitalar</span>
+                                </label>
+                            </div>
+                        </div>
+                        <small class="checkbox-help">Selecione pelo menos um tipo de resíduo</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="empresa-email">E-mail</label>
+                        <input type="email" id="empresa-email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa-telefone">Telefone</label>
+                        <input type="tel" id="empresa-telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="empresa-senha">Senha</label>
+                        <input type="password" id="empresa-senha" name="senha" placeholder="Crie uma senha segura" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-full">Finalizar Cadastro</button>
+                </form>
+
+                <form id="form-usuario" class="cadastro-form" action="php/usuario.php" method="POST">
+                    <h2>Cadastro de Usuário</h2>
+                    <div class="form-group">
+                        <label for="usuario-nome">Nome Completo</label>
+                        <input type="text" id="usuario-nome" name="nome" placeholder="Digite seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-bairro">Bairro</label>
+                        <select id="usuario-bairro" name="bairro" required>
+                            <option value="">Selecione seu bairro</option>
+                            <option value="inconfidentes">Inconfidentes</option>
+                            <option value="riacho das pedras">Riacho das Pedras</option>
+                            <option value="industrial">Industrial</option>
+                            <option value="eldorado">Eldorado</option>
+                            <option value="centro de contagem">Centro de Contagem</option>
+                            <option value="jardim riacho">Jardim Riacho</option>
+                            <option value="petrolandia">Petrolândia</option>
+                            <option value="florestal">Florestal</option>
+                            <option value="ressaca">Ressaca</option>
+                            <option value="parque sao joao">Parque São João</option>
+                            <option value="jardim laguna">Jardim Laguna</option>
+                            <option value="agua branca">Água Branca</option>
+                            <option value="santa cruz">Santa Cruz</option>
+                            <option value="nova contagem">Nova Contagem</option>
+                            <option value="amazonas">Amazonas</option>
+                            <option value="bairro europa">Bairro Europa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-email">E-mail</label>
+                        <input type="email" id="usuario-email" name="email" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-telefone">Telefone</label>
+                        <input type="tel" id="usuario-telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="usuario-senha">Senha</label>
+                        <input type="password" id="usuario-senha" name="senha" placeholder="Crie uma senha segura" required>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-primary btn-full">Finalizar Cadastro</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Eco Map — Conectando sustentabilidade e tecnologia.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5531920077134?text=Olá%20Eco%20Map" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/mensagens.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.cadastro-tab');
+            const forms = document.querySelectorAll('.cadastro-form');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    forms.forEach(form => form.classList.remove('active'));
+                    document.getElementById(`form-${tabId}`).classList.add('active');
+                });
+            });
+
+            // Validação para garantir que o bairro seja selecionado
+            const formsValidation = document.querySelectorAll('.cadastro-form');
+            
+            formsValidation.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    const bairroSelect = this.querySelector('select[name="bairro"]');
+                    if (bairroSelect && bairroSelect.value === '') {
+                        e.preventDefault();
+                        alert('Por favor, selecione seu bairro');
+                        bairroSelect.focus();
+                    }
+
+                    // Validação para checkboxes (apenas no formulário de empresa)
+                    if (this.id === 'form-empresa') {
+                        const checkboxes = this.querySelectorAll('input[name="residuos[]"]:checked');
+                        if (checkboxes.length === 0) {
+                            e.preventDefault();
+                            alert('Por favor, selecione pelo menos um tipo de resíduo que sua empresa trata');
+                            return false;
+                        }
+                    }
+                });
+            });
+
+            // Melhorar a experiência dos checkboxes
+            const checkboxes = document.querySelectorAll('input[name="residuos[]"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const label = this.nextElementSibling;
+                    if (this.checked) {
+                        label.classList.add('checked');
+                    } else {
+                        label.classList.remove('checked');
+                    }
+                });
+            });
+
+            // Verificar parâmetros de URL para mostrar mensagens
+            const urlParams = new URLSearchParams(window.location.search);
+            const erro = urlParams.get('erro');
+            const sucesso = urlParams.get('sucesso');
+
+            if (erro) {
+                mensagemManager.erro(erro);
+            }
+
+            if (sucesso) {
+                mensagemManager.sucesso(sucesso);
+            }
+        });
+    </script>
+</body>
+</html>
